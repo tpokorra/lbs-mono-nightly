@@ -22,7 +22,7 @@ function buildTarBall {
     then
       patch -p1 < ../nuget_aspnet_5.2.patch || exit 1
     else
-      if [[ "$branch" == "master" ]]
+      if [[ "$branch" == "master" || "$branch" == "monodevelop-5.5-branch" || "$branch" == "monodevelop-5.6-branch" ]]
       then
         patch -p1 < ../nuget_aspnet_master.patch || exit 1
       else
