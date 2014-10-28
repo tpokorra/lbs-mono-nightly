@@ -12,6 +12,9 @@ function buildTarBall {
   echo "current revision of git $giturl $branch: " `git rev-parse HEAD`
   . /opt/mono/env.sh
   ./autogen.sh
+  # see http://jenkins.mono-project.com/view/Packaging-Mono/job/build-source-tarball-mono/
+  make get-monolite-latest
+  make
   make dist
   status=$?
   if [ $status -ne 0 ]
