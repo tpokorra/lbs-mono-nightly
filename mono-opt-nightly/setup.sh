@@ -54,7 +54,7 @@ mkdir ~/sources
 # those are different packages than in BuildRequires in the spec file
 if [ -f /etc/redhat-release ] 
 then
-  yum install -y git-core automake autoconf libtool tar which gcc-c++ gettext mono-opt bzip2
+  yum install -y git-core automake autoconf libtool tar which gcc-c++ gettext mono-opt bzip2 make gcc bison bzip2
 else
   apt-get install -y --force-yes git-core
   echo "LBSERROR: need to install required packages for building tarball, see CentOS"
