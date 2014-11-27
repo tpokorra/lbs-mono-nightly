@@ -1,5 +1,7 @@
 #!/bin/bash
 
+Failed=0
+
 function buildTarBall {
   giturl=$1
   branch=$2
@@ -20,6 +22,8 @@ function buildTarBall {
   if [ $status -ne 0 ]
   then
     echo "LBSERROR: error during make dist"
+    Failed=1
+    return
   fi
 
   # get the version number from the generated tarball, eg. mono-3.6.1.tar.bz2
@@ -39,6 +43,7 @@ function buildTarBall {
   if [[ ! `ls work/mono-*.tar.bz2` ]]
   then
     echo "LBSERROR: no tarball was created"
+    Failed=1
     return
   fi
   cp work/mono-*.tar.bz2 ~/tarball/mono-$branch-nightly.tar.bz2
@@ -63,6 +68,7 @@ fi
 branch=$1
 buildTarBall "https://github.com/mono/mono.git" $branch
 
-# tell the LBS that the calling python script can continue
-echo "LBSScriptFinished"
-
+if [ $Failed -eq 1 ]
+then
+  exit -1
+fi
