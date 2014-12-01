@@ -31,6 +31,9 @@ function buildTarBall {
       fi
     fi
   fi
+
+  # first get submodules so that we can patch ikvm which is in external, ie. submodule
+  git submodule update --init --recursive
   patch -p1 < ../ikvm_net40.patch || exit 1
 
   # quick fix to include dlls and .exe files in the tarball
