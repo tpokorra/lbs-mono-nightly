@@ -1,5 +1,5 @@
---- a/external/ikvm/reflect/IKVM.Reflection.csproj
-+++ b/external/ikvm/reflect/IKVM.Reflection.csproj
+--- a/main/external/ikvm/reflect/IKVM.Reflection.csproj
++++ b/main/external/ikvm/reflect/IKVM.Reflection.csproj
 @@ -2,4 +2,4 @@
 -<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 +<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
