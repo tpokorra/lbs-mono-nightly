@@ -32,10 +32,6 @@ function buildTarBall {
     fi
   fi
 
-  # first get submodules so that we can patch ikvm which is in external, ie. submodule
-  git submodule update --init --recursive
-  patch -p1 < ../ikvm_net40.patch || exit 1
-
   # quick fix to include dlls and .exe files in the tarball
   # reverting commit https://github.com/mono/monodevelop/commit/a6ce3fd8982770e8d72bfdfb1cd8c5d2c11fdd6b
   sed -i "s#find tarballs/monodevelop#echo Disabled: find tarballs/monodevelop#g" Makefile

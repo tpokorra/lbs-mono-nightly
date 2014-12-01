@@ -15,6 +15,7 @@ BuildRequires: automake autoconf libtool mono-opt-nightly mono-opt-nightly-devel
 Requires: mono-opt >= 3.0 mono-opt-devel libgdiplus pkgconfig gnome-sharp2-opt gtk-sharp2-opt mono-libgdiplus-opt mono-tools-opt
 BuildRoot: /tmp/buildroot
 Source: monodevelop-%{fileversion}.tar.bz2
+Patch1: ikvm_net40.patch
 
 %description
 MonoDevelop
@@ -22,6 +23,7 @@ MonoDevelop
 %prep
 [ -d %{buildroot} ] && [ "/" != "%{buildroot}" ] && rm -rf %{buildroot}
 %setup -q -n monodevelop-%{fileversion}
+%patch1 -p1
 
 %build
 # Configure and make source
