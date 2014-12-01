@@ -31,6 +31,7 @@ function buildTarBall {
       fi
     fi
   fi
+  patch -p1 < ../ikvm_net40.patch || exit 1
 
   # quick fix to include dlls and .exe files in the tarball
   # reverting commit https://github.com/mono/monodevelop/commit/a6ce3fd8982770e8d72bfdfb1cd8c5d2c11fdd6b
