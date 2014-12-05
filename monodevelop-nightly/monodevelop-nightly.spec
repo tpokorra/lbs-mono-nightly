@@ -24,7 +24,8 @@ MonoDevelop
 %setup -q -n monodevelop-%{fileversion}
 for f in `find . -name *.csproj`
 do
-  sed -i 's/ToolsVersion=".*"/ToolsVersion="4.5"/g' $f
+  sed -i 's#xmlns="http://schemas.microsoft.com/developer/msbuild/2003"##g' $f
+  sed -i 's#ToolsVersion=".*"#ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"#g' $f
   sed -i 's#<TargetFrameworkVersion>.*</TargetFrameworkVersion>#<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>#g' $f
 done
 
