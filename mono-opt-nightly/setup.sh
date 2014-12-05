@@ -50,7 +50,7 @@ function buildTarBall {
   mv work/mono-*.tar.bz2 ~/sources/mono-nightly.tar.bz2
 
   echo "DONE with building the tarball for " $branch
-  echo "download at http://lbs.solidcharity.com/tarballs/tpokorra/mono/mono-$branch-nightly.tar.bz2"
+  echo "download at http://download.lbs.solidcharity.com/tarballs/tpokorra/mono-nightly/mono-$branch-nightly.tar.bz2"
 }
 
 mkdir ~/sources
