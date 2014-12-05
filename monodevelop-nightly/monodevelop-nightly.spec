@@ -11,7 +11,7 @@ Release: %{release}
 Packager: Timotheus Pokorra <timotheus.pokorra@solidcharity.com>
 License: GPL
 Group: none
-BuildRequires: automake autoconf libtool mono-opt-nightly mono-opt-nightly-devel libgdiplus pkgconfig shared-mime-info intltool gtk-sharp2-opt gnome-sharp2-opt
+BuildRequires: automake autoconf libtool mono-opt mono-opt-devel libgdiplus pkgconfig shared-mime-info intltool gtk-sharp2-opt gnome-sharp2-opt
 Requires: mono-opt >= 3.0 mono-opt-devel libgdiplus pkgconfig gnome-sharp2-opt gtk-sharp2-opt mono-libgdiplus-opt mono-tools-opt
 BuildRoot: /tmp/buildroot
 Source: monodevelop-%{fileversion}.tar.bz2
@@ -22,12 +22,6 @@ MonoDevelop
 %prep
 [ -d %{buildroot} ] && [ "/" != "%{buildroot}" ] && rm -rf %{buildroot}
 %setup -q -n monodevelop-%{fileversion}
-for f in `find . -name *.csproj`
-do
-  sed -i 's#xmlns="http://schemas.microsoft.com/developer/msbuild/2003"##g' $f
-  sed -i 's#ToolsVersion=".*"#ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"#g' $f
-  sed -i 's#<TargetFrameworkVersion>.*</TargetFrameworkVersion>#<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>#g' $f
-done
 
 %build
 # Configure and make source
