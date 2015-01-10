@@ -25,13 +25,9 @@ MonoDevelop
 for f in `find . -name *.csproj`
 do
   sed -i 's/ToolsVersion=".*"/ToolsVersion="4.0"/g' $f
-  sed -i 's#<TargetFrameworkVersion>.*</TargetFrameworkVersion>#<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>#g'
-$f
-  sed -i 's#<Project DefaultTargets="Build"
-ToolsVersion="4.0">#<Project DefaultTargets="Build" ToolsVersion="4.0"
-xmlns="http://schemas.microsoft.com/developer/msbuild/2003">#g' $f
-  sed -i 's#<Project ToolsVersion="4.0">#<Project ToolsVersion="4.0"
-xmlns="http://schemas.microsoft.com/developer/msbuild/2003">#g' $f
+  sed -i 's#<TargetFrameworkVersion>.*</TargetFrameworkVersion>#<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>#g' $f
+  sed -i 's#<Project DefaultTargets="Build" ToolsVersion="4.0">#<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">#g' $f
+  sed -i 's#<Project ToolsVersion="4.0">#<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">#g' $f
 done
 
 %build
