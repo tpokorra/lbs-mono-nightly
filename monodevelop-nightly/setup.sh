@@ -11,6 +11,7 @@ function buildTarBall {
   fi
   echo "current revision of git $giturl $branch: " `git rev-parse HEAD`
   . /opt/mono/env.sh
+  patch -p1 < ../Mono4.patch
   ./configure --profile=stable
 
   # install the certificates for nuget, see http://stackoverflow.com/questions/15181888/nuget-on-linux-error-getting-response-stream
