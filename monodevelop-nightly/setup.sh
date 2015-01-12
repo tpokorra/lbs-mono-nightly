@@ -71,7 +71,7 @@ then
     rpm -Uhv http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-11.ius.centos6.noarch.rpm
     gitpackage=git18
   fi
-  yum install -y $gitpackage make automake autoconf libtool tar which gcc-c++ gettext bzip2 mono-opt mono-opt-devel libgdiplus pkgconfig shared-mime-info intltool gtk-sharp2-opt gnome-sharp2-opt
+  yum install -y $gitpackage make automake autoconf libtool tar which gcc-c++ gettext bzip2 mono-opt-nightly mono-opt-nightly-devel libgdiplus pkgconfig shared-mime-info intltool gtk-sharp2-opt gnome-sharp2-opt
 else
   apt-get install -y --force-yes git-core automake autoconf libtool tar build-essential gettext mono-opt bzip2
 fi
